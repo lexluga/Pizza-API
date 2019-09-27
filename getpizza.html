@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fetch Pizza API</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+</head>
+
+
+<body>
+    <div class="container py-5" id="app">
+
+        <div class="row" v-for="results in chunkedResults">
+            <div class="column" v-for="result in results">
+            <div class="cards">
+                <div class="card" style="width: 23rem">
+
+                   
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                        
+                    <div class="card-body">
+                        <h5 class="card-title"> Pizza </h5>
+                        <p class="card-text">Description: {{ result.description }}</p>
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Name: {{result.name}}</li>
+                        </ul>
+
+                        <h5 class="card-title"> &nbsp &nbsp Toppings </h5>
+                        <div class="card-body" v-for="topping in result.toppings">
+                            <button type="button" class="btn btn-pill btn-sm btn-danger ">
+                                <span>{{ topping }}</span>
+                            </button>
+                        </div>
+
+                        <div class="card-body">
+                                <button type="button" class="btn btn-primary btn-sm">View Pizza</button>
+                                <button type="button" class="btn btn-secondary btn-sm">Add Pizza</button>
+                                <button type="button" class="btn btn-success btn-sm">Delete Pizza</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"></script>
+    <script src='main.js'></script>
+   
+</body>
+
+</html>
